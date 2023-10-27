@@ -1,6 +1,6 @@
 #include "platform.h"
 
-#if defined (_WIN32) || defined (_3DS) || defined(VITA) || defined(WIIU) || defined(GEKKO) || defined(__PSL1GHT__)
+#if defined (_WIN32) || defined (_3DS) || defined(VITA) || defined(WIIU) || defined(GEKKO) || defined(__PSL1GHT__) || defined (SF2000)
 
 void apps_browser_init(core_crocods_t *core, int flag) {
 }

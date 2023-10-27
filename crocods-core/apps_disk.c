@@ -1,6 +1,9 @@
 #include "platform.h"
+#if defined(SF2000)
+#include "../../../dirent.h"
+#else
 #include <dirent.h>
-
+#endif
 void DispAppsDisk(core_crocods_t *core, u16 keys_pressed0);
 void apps_disk_readdir(core_crocods_t *core);
 

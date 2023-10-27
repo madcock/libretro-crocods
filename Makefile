@@ -263,6 +263,20 @@ else ifeq ($(platform), wiiu)
 	PLATFORM_DEFINES += -DGEKKO -DWIIU -DHW_RVL -mrvl -mcpu=750 -meabi -mhard-float
 	STATIC_LINKING = 1
 
+# SF2000
+else ifeq ($(platform), sf2000)
+    TARGET := $(TARGET_NAME)_libretro_$(platform).a
+    MIPS=/opt/mips32-mti-elf/2019.09-03-2/bin/mips-mti-elf-
+    CC = $(MIPS)gcc
+    CXX = $(MIPS)g++
+    AR = $(MIPS)ar
+    CFLAGS =-EL -march=mips32 -mtune=mips32 -msoft-float -ffast-math -fomit-frame-pointer
+    CFLAGS+=-G0 -mno-abicalls -fno-pic -ffreestanding
+    CFLAGS+=-fno-use-cxa-atexit
+    CFLAGS+=-DSF2000
+    CXXFLAGS=$(CFLAGS)
+    STATIC_LINKING = 1
+
 else
 	EXT?=dll
    TARGET := $(TARGET_NAME)_libretro.$(EXT)
